@@ -161,42 +161,42 @@ type ShopMode = 'main' | 'men' | 'women';
 
 const INITIAL_PRODUCTS: Product[] = [
   { 
-    id: 1, name: 'Guardian Coat v1', price: 4850, category: 'Male', material: 'Quiet Moss Felted Wool', tag: 'Limited (3/50)', 
+    id: 1, name: 'Patriarch Overcoat', price: 4850, category: 'Male', material: 'Quiet Moss Felted Wool', tag: 'Limited (3/50)', 
     description: 'Eine archaische Rüstung für den modernen Führer.',
     colors: [
-      { name: 'Obsidian Black', images: ['https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&q=80&w=1200'] },
+      { name: 'Imperial Midnight', images: ['https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&q=80&w=1200'] },
       { name: 'Ash Grey', images: ['https://images.unsplash.com/photo-1550614000-4b95d415dc96?auto=format&fit=crop&q=80&w=1200'] }
     ],
     sizes: ['46', '48', '50', '52']
   },
   { 
-    id: 2, name: 'Blossom Organza Gown', price: 3900, category: 'Female', material: 'Luminous Citrine Silk', tag: 'Signature', 
+    id: 2, name: 'Elysian Divine Gown', price: 3900, category: 'Female', material: 'Luminous Citrine Silk', tag: 'Signature', 
     description: 'Leichtigkeit, die atmet. Organische Lagenstruktur.',
-    colors: [{ name: 'Citrine', images: ['https://images.unsplash.com/photo-1539008835270-34989069634e?auto=format&fit=crop&q=80&w=1200'] }],
+    colors: [{ name: 'Divine Ivory', images: ['https://images.unsplash.com/photo-1539008835270-34989069634e?auto=format&fit=crop&q=80&w=1200'] }],
     sizes: ['34', '36', '38', '40']
   },
   { 
-    id: 3, name: 'Tactical Vest', price: 2400, category: 'Male', material: 'Silk & Kevlar', tag: 'New Arrival', 
+    id: 3, name: 'Architectural Wool Suit', price: 2400, category: 'Male', material: 'Silk & Kevlar', tag: 'New Arrival', 
     description: 'Die Fusion aus Schutz und Eleganz.',
-    colors: [{ name: 'Kevlar Black', images: ['https://images.unsplash.com/photo-1617137968427-839f26953ed6?auto=format&fit=crop&q=80&w=1200'] }],
-    sizes: ['M', 'L']
+    colors: [{ name: 'Imperial Midnight', images: ['https://images.unsplash.com/photo-1617137968427-839f26953ed6?auto=format&fit=crop&q=80&w=1200'] }],
+    sizes: ['46', '48', '50']
   },
   { 
-    id: 4, name: 'Citrine Blossom Scarf', price: 850, category: 'Newest', material: 'Hand-Painted Silk', tag: 'Artisan', 
+    id: 4, name: 'Grace Silk Blouse', price: 850, category: 'Female', material: 'Hand-Painted Silk', tag: 'Artisan', 
     description: 'Ein Akzent aus Licht. Handbemaltes Unikat.',
-    colors: [{ name: 'Citrine', images: ['https://images.unsplash.com/photo-1520903920243-00d872a2d1c9?auto=format&fit=crop&q=80&w=1200'] }],
-    sizes: ['One Size']
+    colors: [{ name: 'Divine Ivory', images: ['https://images.unsplash.com/photo-1520903920243-00d872a2d1c9?auto=format&fit=crop&q=80&w=1200'] }],
+    sizes: ['34', '36', '38']
   },
   { 
-    id: 5, name: 'Guardian Knit Sweater', price: 1250, category: 'Newest', material: 'Cashmere & Moss Fiber', tag: 'Essential', 
+    id: 5, name: 'Heritage Lace Dress', price: 1250, category: 'Female', material: 'Cashmere & Moss Fiber', tag: 'Essential', 
     description: 'Ultimativer Komfort. Eine schützende Schicht.',
-    colors: [{ name: 'Moss', images: ['https://images.unsplash.com/photo-1576566588028-4147f3842f27?auto=format&fit=crop&q=80&w=1200'] }],
-    sizes: ['S', 'M', 'L']
+    colors: [{ name: 'Heritage Gold', images: ['https://images.unsplash.com/photo-1576566588028-4147f3842f27?auto=format&fit=crop&q=80&w=1200'] }],
+    sizes: ['34', '36', '38']
   },
   { 
-    id: 6, name: 'Obsidian Leather Boots', price: 1850, category: 'Male', material: 'Calfskin & Titanium', tag: 'Runway', 
+    id: 6, name: 'Imperial Midnight Boots', price: 1850, category: 'Male', material: 'Calfskin & Titanium', tag: 'Runway', 
     description: 'Geerdet und unzerstörbar. Handgefertigt in Italien.',
-    colors: [{ name: 'Obsidian', images: ['https://images.unsplash.com/photo-1520639888713-7851133b1ed0?auto=format&fit=crop&q=80&w=1200'] }],
+    colors: [{ name: 'Imperial Midnight', images: ['https://images.unsplash.com/photo-1520639888713-7851133b1ed0?auto=format&fit=crop&q=80&w=1200'] }],
     sizes: ['41', '42', '43', '44']
   }
 ];
@@ -343,7 +343,7 @@ export default function App() {
       image
     };
     setCart([...cart, newItem]);
-    setNotification(`${product.name} zur Kollektion hinzugefügt`);
+    setNotification(`${product.name} added to your collection`);
     setTimeout(() => setNotification(null), 3000);
   };
 
@@ -351,21 +351,21 @@ export default function App() {
 
   const getThemeColors = () => {
     switch(shopMode) {
-      case 'men': return { bg: 'bg-[#EAECEF] dark:bg-[#11151A]', headerBg: 'bg-[#EAECEF]/90 dark:bg-[#11151A]/90', text: 'text-[#0A0F14] dark:text-[#EAECEF]', border: 'border-[#0A0F14]/10 dark:border-[#EAECEF]/10', selectionBg: 'selection:bg-[#0A0F14] dark:selection:bg-[#EAECEF]', selectionText: 'selection:text-[#EAECEF] dark:selection:text-[#11151A]' };
-      case 'women': return { bg: 'bg-[#F5EBE9] dark:bg-[#1A1413]', headerBg: 'bg-[#F5EBE9]/90 dark:bg-[#1A1413]/90', text: 'text-[#1A0F0E] dark:text-[#F5EBE9]', border: 'border-[#1A0F0E]/10 dark:border-[#F5EBE9]/10', selectionBg: 'selection:bg-[#1A0F0E] dark:selection:bg-[#F5EBE9]', selectionText: 'selection:text-[#F5EBE9] dark:selection:text-[#1A1413]' };
+      case 'men': return { bg: 'bg-[#0A0F14]', headerBg: 'bg-[#0A0F14]/90', text: 'text-[#F9F8F4]', border: 'border-[#F9F8F4]/10', selectionBg: 'selection:bg-[#C5A059]', selectionText: 'selection:text-[#0A0F14]' };
+      case 'women': return { bg: 'bg-[#F9F8F4]', headerBg: 'bg-[#F9F8F4]/90', text: 'text-[#0A0F14]', border: 'border-[#0A0F14]/10', selectionBg: 'selection:bg-[#C5A059]', selectionText: 'selection:text-[#F9F8F4]' };
       case 'main':
-      default: return { bg: 'bg-[#F4F4F0] dark:bg-[#0A0A0A]', headerBg: 'bg-[#F4F4F0]/90 dark:bg-[#0A0A0A]/90', text: 'text-[#050505] dark:text-[#F4F4F0]', border: 'border-[#050505]/10 dark:border-[#F4F4F0]/10', selectionBg: 'selection:bg-[#050505] dark:selection:bg-[#F4F4F0]', selectionText: 'selection:text-[#F4F4F0] dark:selection:text-[#0A0A0A]' };
+      default: return { bg: 'bg-[#0A0F14]', headerBg: 'bg-[#0A0F14]/90', text: 'text-[#F9F8F4]', border: 'border-[#F9F8F4]/10', selectionBg: 'selection:bg-[#C5A059]', selectionText: 'selection:text-[#0A0F14]' };
     }
   };
   const theme = getThemeColors();
 
   const NavLinks = () => (
     <>
-      <button onClick={() => { setView('shop'); setShopMode('men'); }} className={`hover:opacity-50 transition-opacity ${(view === 'shop' && shopMode === 'men') ? 'opacity-100' : 'opacity-70'}`}>Herren</button>
-      <button onClick={() => { setView('shop'); setShopMode('women'); }} className={`hover:opacity-50 transition-opacity ${(view === 'shop' && shopMode === 'women') ? 'opacity-100' : 'opacity-70'}`}>Damen</button>
-      <button onClick={() => { setView('runway'); setShopMode('main'); }} className={`hover:opacity-50 transition-opacity ${view === 'runway' ? 'opacity-100' : 'opacity-70'}`}>Runway</button>
-      <button onClick={() => { setView('about'); setShopMode('main'); }} className={`hover:opacity-50 transition-opacity ${view === 'about' ? 'opacity-100' : 'opacity-70'}`}>Maison</button>
-      <button onClick={() => { setView('journal'); setShopMode('main'); }} className={`hover:opacity-50 transition-opacity ${view === 'journal' ? 'opacity-100' : 'opacity-70'}`}>Journal</button>
+      <button onClick={() => { setView('shop'); setShopMode('men'); }} className={`hover:text-[#C5A059] transition-colors ${(view === 'shop' && shopMode === 'men') ? 'text-[#C5A059]' : ''}`}>The Path of Strength</button>
+      <button onClick={() => { setView('shop'); setShopMode('women'); }} className={`hover:text-[#C5A059] transition-colors ${(view === 'shop' && shopMode === 'women') ? 'text-[#C5A059]' : ''}`}>The Path of Grace</button>
+      <button onClick={() => { setView('runway'); setShopMode('main'); }} className={`hover:text-[#C5A059] transition-colors ${view === 'runway' ? 'text-[#C5A059]' : ''}`}>Excellence</button>
+      <button onClick={() => { setView('about'); setShopMode('main'); }} className={`hover:text-[#C5A059] transition-colors ${view === 'about' ? 'text-[#C5A059]' : ''}`}>Maison</button>
+      <button onClick={() => { setView('journal'); setShopMode('main'); }} className={`hover:text-[#C5A059] transition-colors ${view === 'journal' ? 'text-[#C5A059]' : ''}`}>Heritage</button>
     </>
   );
 
@@ -415,8 +415,8 @@ export default function App() {
                     className="w-full border border-gray-300 dark:border-gray-700 bg-transparent p-4 mb-8 text-black dark:text-white focus:outline-none focus:border-black dark:focus:border-white"
                   />
                   <div className="flex justify-end gap-4">
-                    <button type="button" onClick={() => setPromptModal(null)} className="px-6 py-2 text-sm font-bold uppercase tracking-widest text-gray-500 hover:text-black dark:hover:text-white transition-colors">Abbrechen</button>
-                    <button type="submit" className="px-6 py-2 text-sm font-bold uppercase tracking-widest bg-black text-white dark:bg-white dark:text-black hover:bg-black/80 dark:hover:bg-white/80 transition-colors">Speichern</button>
+                    <button type="button" onClick={() => setPromptModal(null)} className="px-6 py-2 text-sm font-bold uppercase tracking-widest text-gray-500 hover:text-black dark:hover:text-white transition-colors">Cancel</button>
+                    <button type="submit" className="px-6 py-2 text-sm font-bold uppercase tracking-widest bg-black text-white dark:bg-white dark:text-black hover:bg-black/80 dark:hover:bg-white/80 transition-colors">Save</button>
                   </div>
                 </form>
               </motion.div>
@@ -427,10 +427,10 @@ export default function App() {
         {/* Header / Navigation */}
         <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled || isMobileMenuOpen || view !== 'home' ? `${theme.headerBg} backdrop-blur-xl border-b ${theme.border} py-4` : 'bg-transparent py-8'} ${((view === 'runway' || (view === 'home' && !scrolled)) && !isMobileMenuOpen) ? 'text-white mix-blend-difference' : theme.text}`}>
           <div className="max-w-[1600px] mx-auto px-6 md:px-12 flex justify-between items-center">
-            <div onClick={() => { setView('home'); setShopMode('main'); }} className="text-2xl md:text-3xl font-serif font-semibold tracking-tighter cursor-pointer hover:opacity-70 transition-opacity flex items-baseline gap-3">
-              <ET initial="RUDI BEWER" />
-              {shopMode === 'men' && <span className="text-sm font-sans tracking-widest uppercase opacity-60">Herren</span>}
-              {shopMode === 'women' && <span className="text-sm font-sans tracking-widest uppercase opacity-60">Damen</span>}
+            <div onClick={() => { setView('home'); setShopMode('main'); }} className="text-2xl md:text-3xl font-serif font-semibold tracking-widest cursor-pointer hover:text-[#C5A059] transition-colors flex items-baseline gap-3">
+              <ET initial="MAISON RUDI BEWER" />
+              {shopMode === 'men' && <span className="text-sm font-sans tracking-widest uppercase opacity-60">The Path of Strength</span>}
+              {shopMode === 'women' && <span className="text-sm font-sans tracking-widest uppercase opacity-60">The Path of Grace</span>}
             </div>
             
             <nav className="hidden lg:flex gap-8 items-center font-sans font-semibold text-[10px] tracking-[0.2em] uppercase">
@@ -480,20 +480,20 @@ export default function App() {
                   </motion.div>
                   <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-6">
                     <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5, duration: 1 }}>
-                      <ET as="h2" initial="Spring / Summer 2026" className="font-sans text-[10px] tracking-[0.4em] uppercase mb-6" />
+                      <ET as="h2" initial="Manifest der Exzellenz" className="font-sans text-[10px] tracking-[0.4em] uppercase mb-6 text-[#C5A059]" />
                     </motion.div>
                     <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.2, duration: 1.5, ease: "easeOut" }}>
-                      <ET as="h1" initial="EXTREME\nCONTRAST" className="font-serif text-[clamp(4rem,12vw,12rem)] leading-[0.8] tracking-tighter font-light italic" />
+                      <ET as="h1" initial="THE GREAT\nDISTINCTION" className="font-serif text-[clamp(4rem,12vw,12rem)] leading-[0.8] tracking-tighter font-light italic" />
                     </motion.div>
-                    <motion.button onClick={() => setView('runway')} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.2, duration: 1 }} className="mt-16 flex items-center gap-4 border border-white/30 rounded-full px-8 py-4 hover:bg-white hover:text-black transition-colors font-sans text-[10px] tracking-[0.2em] uppercase">
-                      <Play size={14} fill="currentColor" /> <ET initial="Watch the Show" />
+                    <motion.button onClick={() => setView('runway')} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.2, duration: 1 }} className="mt-16 flex items-center gap-4 border border-[#C5A059]/30 rounded-full px-8 py-4 hover:bg-[#C5A059] hover:text-[#0A0F14] transition-colors font-sans text-[10px] tracking-[0.2em] uppercase">
+                      <Play size={14} fill="currentColor" /> <ET initial="Discover Excellence" />
                     </motion.button>
                   </div>
                 </section>
 
                 <section className="py-32 md:py-48 px-6 max-w-[1200px] mx-auto text-center">
                   <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }}>
-                    <ET as="p" initial="Gottes Schöpfung in Seide und Wolle. In Metzingen geschmiedet für die Ewigkeit. Definiere deine Präsenz." className="font-serif text-3xl md:text-5xl leading-tight text-[#050505] font-light" />
+                    <ET as="p" initial="Wir brechen mit der Gleichförmigkeit der Moderne. Wir feiern die heilige Unterscheidung. Stärke für den Mann. Anmut für die Frau. Kompromisslose Qualität als Erbe für Generationen." className="font-serif text-3xl md:text-5xl leading-tight text-[#F9F8F4] font-light" />
                   </motion.div>
                 </section>
 
@@ -503,16 +503,16 @@ export default function App() {
                       <EM initial="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&q=80&w=1200" className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
                       <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-500 pointer-events-none"></div>
                       <div className="absolute inset-0 p-12 flex flex-col justify-between text-white pointer-events-none">
-                        <ET as="span" initial="Menswear" className="font-sans text-[10px] tracking-[0.2em] uppercase pointer-events-auto" />
-                        <ET as="h2" initial="The\nGuardian" className="font-serif text-6xl md:text-8xl font-light italic pointer-events-auto" />
+                        <ET as="span" initial="The Path of Strength" className="font-sans text-[10px] tracking-[0.2em] uppercase pointer-events-auto text-[#C5A059]" />
+                        <ET as="h2" initial="The\nPatriarch" className="font-serif text-6xl md:text-8xl font-light italic pointer-events-auto" />
                       </div>
                     </motion.div>
                     <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} transition={{ delay: 0.2 }} onClick={() => { if (!isEditMode) { setView('shop'); setShopMode('women'); } }} className="relative group cursor-pointer overflow-hidden rounded-[2rem]">
                       <EM initial="https://images.unsplash.com/photo-1539008835270-34989069634e?auto=format&fit=crop&q=80&w=1200" className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
                       <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-500 pointer-events-none"></div>
                       <div className="absolute inset-0 p-12 flex flex-col justify-between text-white pointer-events-none">
-                        <ET as="span" initial="Womenswear" className="font-sans text-[10px] tracking-[0.2em] uppercase pointer-events-auto" />
-                        <ET as="h2" initial="The\nBlossom" className="font-serif text-6xl md:text-8xl font-light italic pointer-events-auto" />
+                        <ET as="span" initial="The Path of Grace" className="font-sans text-[10px] tracking-[0.2em] uppercase pointer-events-auto text-[#C5A059]" />
+                        <ET as="h2" initial="The\nDivine" className="font-serif text-6xl md:text-8xl font-light italic pointer-events-auto" />
                       </div>
                     </motion.div>
                   </div>
@@ -522,11 +522,11 @@ export default function App() {
 
             {/* RUNWAY VIEW */}
             {view === 'runway' && (
-              <motion.div key="runway" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="bg-[#050505] text-[#F4F4F0] min-h-screen pt-32 pb-24 px-6 md:px-12">
+              <motion.div key="runway" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="bg-[#0A0F14] text-[#F9F8F4] min-h-screen pt-32 pb-24 px-6 md:px-12">
                 <div className="max-w-[1600px] mx-auto">
                   <div className="text-center mb-24">
-                    <ET as="h2" initial="Fashion Week Paris" className="font-sans text-[10px] tracking-[0.4em] uppercase text-gray-500 mb-6" />
-                    <ET as="h1" initial="SS26: THE SHOW" className="font-serif text-[clamp(3rem,8vw,8rem)] leading-[0.9] font-light italic text-outline" />
+                    <ET as="h2" initial="Excellence" className="font-sans text-[10px] tracking-[0.4em] uppercase text-[#C5A059] mb-6" />
+                    <ET as="h1" initial="THE PATH OF EXCELLENCE" className="font-serif text-[clamp(3rem,8vw,8rem)] leading-[0.9] font-light italic text-outline" />
                   </div>
                   
                   <div className="aspect-video w-full bg-gray-900 mb-32 relative group cursor-pointer overflow-hidden">
@@ -555,7 +555,7 @@ export default function App() {
                 <div className={`flex flex-col md:flex-row justify-between items-start md:items-end mb-24 gap-8 border-b ${theme.border} pb-12`}>
                   <div>
                     <ET as="h2" initial="Saison 2026" className="font-sans text-[10px] tracking-[0.3em] uppercase opacity-60 mb-4" />
-                    <ET as="h1" initial={shopMode === 'men' ? 'Herren Boutique' : shopMode === 'women' ? 'Damen Boutique' : 'New Arrivals'} className="font-serif text-6xl md:text-8xl font-light tracking-tighter" />
+                    <ET as="h1" initial={shopMode === 'men' ? 'The Path of Strength' : shopMode === 'women' ? 'The Path of Grace' : 'Excellence Collection'} className="font-serif text-6xl md:text-8xl font-light tracking-tighter" />
                   </div>
                   <ET as="p" initial="Kostenloser Express-Versand weltweit. Jedes Stück ein Unikat." className="font-sans text-xs tracking-widest uppercase opacity-60 max-w-xs leading-relaxed" />
                 </div>
@@ -597,7 +597,7 @@ export default function App() {
                     <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="group cursor-pointer flex items-center justify-center border-2 border-dashed border-gray-300 dark:border-gray-700 rounded-[2rem] min-h-[400px] hover:border-gray-500 dark:hover:border-gray-500 transition-colors" onClick={handleAddProduct}>
                       <div className="flex flex-col items-center gap-4 text-gray-500">
                         <Plus size={48} />
-                        <span className="font-sans text-sm tracking-widest uppercase font-bold">Produkt hinzufügen</span>
+                        <span className="font-sans text-sm tracking-widest uppercase font-bold">Add Product</span>
                       </div>
                     </motion.div>
                   )}
@@ -610,7 +610,7 @@ export default function App() {
               <motion.div key="product" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="max-w-[1600px] mx-auto px-6 md:px-12 pt-32 pb-24">
                 {(() => {
                   const product = products.find(p => p.id === selectedProductId);
-                  if (!product) return <div className="text-center py-32">Produkt nicht gefunden.</div>;
+                  if (!product) return <div className="text-center py-32">Product not found.</div>;
                   
                   const currentColor = product.colors?.[selectedColorIndex] || { name: 'Default', images: [] };
                   const images = currentColor.images || [];
@@ -624,7 +624,7 @@ export default function App() {
                           {currentImage ? (
                             <img src={currentImage} alt={product.name} className="w-full h-full object-cover" />
                           ) : (
-                            <div className="w-full h-full flex items-center justify-center text-gray-400">Kein Bild</div>
+                            <div className="w-full h-full flex items-center justify-center text-gray-400">No Image</div>
                           )}
                           
                           {/* Image Navigation */}
@@ -640,7 +640,7 @@ export default function App() {
                           {isEditMode && (
                             <div className="absolute top-4 right-4 flex flex-col gap-2 z-20">
                               <label className="bg-black/80 text-white px-3 py-1 text-xs cursor-pointer hover:bg-black transition-colors">
-                                + Bild hinzufügen
+                                + Add Image
                                 <input type="file" className="hidden" accept="image/*" onChange={(e) => {
                                   const file = e.target.files?.[0];
                                   if (!file) return;
@@ -662,7 +662,7 @@ export default function App() {
                                   updateProduct(product.id, { colors: newColors });
                                   setCurrentImageIndex(Math.max(0, currentImageIndex - 1));
                                 }} className="bg-red-500/80 text-white px-3 py-1 text-xs hover:bg-red-500 transition-colors">
-                                  - Bild entfernen
+                                  - Remove Image
                                 </button>
                               )}
                             </div>
@@ -693,12 +693,12 @@ export default function App() {
                           {/* Colors */}
                           <div>
                             <div className="flex justify-between items-center mb-4">
-                              <span className="font-sans text-xs tracking-widest uppercase text-gray-500">Farbe: {currentColor.name}</span>
+                              <span className="font-sans text-xs tracking-widest uppercase text-gray-500">Color: {currentColor.name}</span>
                               {isEditMode && (
                                 <button onClick={() => {
                                   setPromptModal({
                                     isOpen: true,
-                                    title: 'Name der neuen Farbe:',
+                                    title: 'Name of the new color:',
                                     defaultValue: '',
                                     onConfirm: (name) => {
                                       if (name) {
@@ -709,7 +709,7 @@ export default function App() {
                                       }
                                     }
                                   });
-                                }} className="text-[10px] bg-black text-white dark:bg-white dark:text-black px-3 py-1 rounded-full uppercase tracking-widest font-bold hover:opacity-80 transition-opacity">+ Farbe</button>
+                                }} className="text-[10px] bg-black text-white dark:bg-white dark:text-black px-3 py-1 rounded-full uppercase tracking-widest font-bold hover:opacity-80 transition-opacity">+ Color</button>
                               )}
                             </div>
                             <div className="flex gap-3 flex-wrap">
@@ -735,7 +735,7 @@ export default function App() {
                                       e.stopPropagation();
                                       setPromptModal({
                                         isOpen: true,
-                                        title: 'Farbe umbenennen:',
+                                        title: 'Rename color:',
                                         defaultValue: c.name,
                                         onConfirm: (newName) => {
                                           if (newName) {
@@ -744,7 +744,7 @@ export default function App() {
                                           }
                                         }
                                       });
-                                    }} className="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] bg-gray-200 dark:bg-zinc-800 text-black dark:text-white px-2 py-1 rounded opacity-0 group-hover:opacity-100 whitespace-nowrap transition-opacity">Umbenennen</button>
+                                    }} className="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] bg-gray-200 dark:bg-zinc-800 text-black dark:text-white px-2 py-1 rounded opacity-0 group-hover:opacity-100 whitespace-nowrap transition-opacity">Rename</button>
                                   )}
                                 </div>
                               ))}
@@ -754,18 +754,18 @@ export default function App() {
                           {/* Sizes */}
                           <div>
                             <div className="flex justify-between items-center mb-4">
-                              <span className="font-sans text-xs tracking-widest uppercase text-gray-500">Größe</span>
+                              <span className="font-sans text-xs tracking-widest uppercase text-gray-500">Size</span>
                               {isEditMode && (
                                 <button onClick={() => {
                                   setPromptModal({
                                     isOpen: true,
-                                    title: 'Größen kommagetrennt eingeben (z.B. S, M, L, XL):',
+                                    title: 'Enter sizes comma-separated (e.g. S, M, L, XL):',
                                     defaultValue: product.sizes?.join(', ') || '',
                                     onConfirm: (sizesStr) => {
                                       updateProduct(product.id, { sizes: sizesStr.split(',').map(s => s.trim()).filter(Boolean) });
                                     }
                                   });
-                                }} className="text-[10px] bg-black text-white dark:bg-white dark:text-black px-3 py-1 rounded-full uppercase tracking-widest font-bold hover:opacity-80 transition-opacity">Größen bearbeiten</button>
+                                }} className="text-[10px] bg-black text-white dark:bg-white dark:text-black px-3 py-1 rounded-full uppercase tracking-widest font-bold hover:opacity-80 transition-opacity">Edit Sizes</button>
                               )}
                             </div>
                             <div className="flex gap-3 flex-wrap">
@@ -779,7 +779,7 @@ export default function App() {
                                 </button>
                               ))}
                               {(!product.sizes || product.sizes.length === 0) && (
-                                <span className="text-sm text-gray-500">Einheitsgröße</span>
+                                <span className="text-sm text-gray-500">One Size</span>
                               )}
                             </div>
                           </div>
@@ -789,7 +789,7 @@ export default function App() {
                             <span className="font-sans text-xs tracking-widest uppercase text-gray-500 mb-2 block">Material</span>
                             <ET id={`product-${product.id}-material`} as="p" initial={product.material} className="font-sans text-sm mb-6" />
                             
-                            <span className="font-sans text-xs tracking-widest uppercase text-gray-500 mb-2 block">Beschreibung</span>
+                            <span className="font-sans text-xs tracking-widest uppercase text-gray-500 mb-2 block">Description</span>
                             <ET id={`product-${product.id}-description`} as="p" initial={product.description} className="font-sans text-sm leading-relaxed text-gray-600 dark:text-gray-400" />
                           </div>
                         </div>
@@ -798,7 +798,7 @@ export default function App() {
                           onClick={() => addToCart(product, currentColor.name, selectedSize || 'One Size', currentImage)}
                           className="w-full bg-[#050505] dark:bg-[#F4F4F0] text-white dark:text-[#050505] py-5 font-sans text-[10px] font-bold tracking-[0.2em] uppercase hover:bg-black/80 dark:hover:bg-white/80 transition-colors flex justify-center items-center gap-2"
                         >
-                          <ShoppingBag size={16} /> In den Warenkorb
+                          <ShoppingBag size={16} /> Add to Cart
                         </button>
                       </div>
                     </div>
@@ -812,12 +812,12 @@ export default function App() {
               <motion.div key="about" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="max-w-[1600px] mx-auto px-6 md:px-12 pt-32 pb-24">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-24 items-center">
                   <div className="order-2 lg:order-1 max-w-xl">
-                    <ET as="h2" initial="Die Philosophie" className="font-sans text-[10px] tracking-[0.3em] uppercase text-gray-400 dark:text-gray-500 mb-8" />
-                    <ET as="h1" initial="WIR WEBEN\nCHARAKTER." className="font-serif text-5xl md:text-7xl font-light leading-[0.9] mb-12 italic" />
+                    <ET as="h2" initial="The Philosophy" className="font-sans text-[10px] tracking-[0.3em] uppercase text-gray-400 dark:text-gray-500 mb-8" />
+                    <ET as="h1" initial="WE WEAVE\nEXCELLENCE." className="font-serif text-5xl md:text-7xl font-light leading-[0.9] mb-12 italic" />
                     <div className="space-y-8 font-sans text-sm md:text-base text-gray-600 dark:text-gray-400 font-light leading-relaxed">
-                      <ET as="p" initial="Rudi Bewer ist nicht nur Mode. Es ist die Manifestation von Gegensätzen. Wir glauben daran, dass wahre Schönheit in der Spannung entsteht: Die Härte von Kevlar verwoben mit der Zartheit von Organza-Seide." />
-                      <ET as="p" initial="Jedes Stück in unserem Atelier wird als Rüstung für den modernen Alltag konzipiert. Es schützt, es atmet, es strahlt. Wir lehnen Fast Fashion ab und setzen auf Materialien, die mit der Zeit an Charakter gewinnen." />
-                      <ET as="p" initial="Extreme Contrast & Harmony ist kein Slogan. Es ist unser Versprechen an Ihre Individualität." className={`font-serif text-2xl italic ${theme.text} pt-4 border-t ${theme.border}`} />
+                      <ET as="p" initial="Maison Rudi Bewer is not merely fashion. It is the manifestation of distinction. We believe that true beauty arises in the tension between strength and grace: The resilience of modern armor interwoven with the delicacy of divine silk." />
+                      <ET as="p" initial="Every piece in our atelier is conceived as a testament to the modern journey. It protects, it breathes, it radiates. We reject the ephemeral and embrace materials that gain character with time, forging a legacy of excellence." />
+                      <ET as="p" initial="The Great Distinction is not a slogan. It is our promise to your individuality." className={`font-serif text-2xl italic ${theme.text} pt-4 border-t ${theme.border}`} />
                     </div>
                   </div>
                   <div className="order-1 lg:order-2 aspect-[3/4] overflow-hidden">
@@ -831,16 +831,16 @@ export default function App() {
             {view === 'history' && (
               <motion.div key="history" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="max-w-[1000px] mx-auto px-6 md:px-12 pt-32 pb-24">
                 <div className="text-center mb-32">
-                  <ET as="h2" initial="Unsere Wurzeln" className="font-sans text-[10px] tracking-[0.3em] uppercase text-gray-400 dark:text-gray-500 mb-6" />
-                  <ET as="h1" initial="VON METZINGEN\nIN DIE WELT." className="font-serif text-5xl md:text-7xl font-light leading-[0.9] mb-8 italic" />
+                  <ET as="h2" initial="Our Heritage" className="font-sans text-[10px] tracking-[0.3em] uppercase text-gray-400 dark:text-gray-500 mb-6" />
+                  <ET as="h1" initial="FROM TRADITION\nTO EXCELLENCE." className="font-serif text-5xl md:text-7xl font-light leading-[0.9] mb-8 italic" />
                 </div>
 
                 <div className="space-y-32">
                   {[
-                    { year: '1998', title: 'Die Gründung', text: 'Rudi Bewer eröffnet sein erstes kleines Atelier in Metzingen, dem Herzen der deutschen Textilindustrie. Der Fokus: Maßanzüge mit unkonventionellen Schnitten.' },
-                    { year: '2010', title: 'Der Material-Durchbruch', text: 'Einführung der "Quiet Moss" Wolle. Ein eigens entwickeltes Verfahren macht den Stoff wasserabweisend, ohne die Atmungsaktivität zu verlieren.' },
-                    { year: '2018', title: 'Die erste Boutique', text: 'Eröffnung des Flagship-Stores. Die Marke etabliert sich als Geheimtipp für Avantgarde-Liebhaber in ganz Europa.' },
-                    { year: 'Heute', title: 'Extreme Contrast', text: 'Die aktuelle Kollektion definiert die Grenzen zwischen Tech-Wear und Haute Couture neu. Rudi Bewer ist mehr als eine Marke – es ist eine Haltung.' }
+                    { year: '1998', title: 'The Foundation', text: 'Maison Rudi Bewer opens its first atelier, focusing on bespoke tailoring with uncompromising standards and unconventional cuts.' },
+                    { year: '2010', title: 'The Material Breakthrough', text: 'Introduction of "Imperial Weave". A proprietary process that makes the fabric resilient without losing its divine breathability.' },
+                    { year: '2018', title: 'The First Boutique', text: 'Opening of the flagship store. The Maison establishes itself as a beacon for those who seek the great distinction in Europe.' },
+                    { year: 'Today', title: 'The Great Distinction', text: 'The current collection redefines the boundaries between strength and grace. Maison Rudi Bewer is more than a brand – it is an ethos.' }
                   ].map((item, i) => (
                     <motion.div key={i} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} className={`grid grid-cols-1 md:grid-cols-12 gap-8 items-start border-t ${theme.border} pt-12`}>
                       <ET as="div" initial={item.year} className="md:col-span-3 font-serif text-5xl font-light text-[#D9CDB3] dark:text-[#8C7A56]" />
@@ -875,7 +875,7 @@ export default function App() {
                           <ET as="span" initial={item.date} />
                         </div>
                         <ET as="h2" initial={item.title} className="font-serif text-4xl md:text-5xl font-light leading-tight mb-6 group-hover:italic transition-all" />
-                        <ET as="p" initial="Ein tiefer Einblick in die Prozesse und Inspirationen, die unsere Kollektionen formen. Erfahren Sie mehr über die Handwerkskunst aus Metzingen." className="font-sans text-sm text-gray-600 dark:text-gray-400 leading-relaxed max-w-md inline-block" />
+                        <ET as="p" initial="A deep dive into the processes and inspirations that shape our collections. Discover the craftsmanship behind the Great Distinction." className="font-sans text-sm text-gray-600 dark:text-gray-400 leading-relaxed max-w-md inline-block" />
                       </div>
                     </motion.article>
                   ))}
@@ -890,9 +890,9 @@ export default function App() {
                 
                 {cart.length === 0 ? (
                   <div className="text-center py-32">
-                    <ET as="p" initial="Ihre Kollektion ist noch leer." className="font-serif text-3xl text-gray-400 dark:text-gray-500 mb-8 italic" />
+                    <ET as="p" initial="Your collection is currently empty." className="font-serif text-3xl text-gray-400 dark:text-gray-500 mb-8 italic" />
                     <button onClick={() => setView('shop')} className="bg-[#050505] dark:bg-[#F4F4F0] text-white dark:text-[#050505] px-8 py-4 font-sans text-[10px] font-bold tracking-[0.2em] uppercase hover:bg-black/80 dark:hover:bg-white/80 transition-colors">
-                      Zur Boutique
+                      Return to Boutique
                     </button>
                   </div>
                 ) : (
@@ -908,8 +908,8 @@ export default function App() {
                               <h3 className="font-serif text-2xl md:text-3xl font-light">{cmsData[`product-${item.product.id}-name`]?.content || item.product.name}</h3>
                               <span className="font-sans text-sm font-semibold">{getProductPrice(item.product).toLocaleString('de-DE')} €</span>
                             </div>
-                            <p className="font-sans text-[10px] tracking-[0.1em] uppercase text-gray-500 dark:text-gray-400 mb-2">Farbe: {item.color}</p>
-                            <p className="font-sans text-[10px] tracking-[0.1em] uppercase text-gray-500 dark:text-gray-400 mb-6">Größe: {item.size}</p>
+                            <p className="font-sans text-[10px] tracking-[0.1em] uppercase text-gray-500 dark:text-gray-400 mb-2">Color: {item.color}</p>
+                            <p className="font-sans text-[10px] tracking-[0.1em] uppercase text-gray-500 dark:text-gray-400 mb-6">Size: {item.size}</p>
                             <button onClick={() => setCart(cart.filter(c => c.cartItemId !== item.cartItemId))} className="font-sans text-[10px] tracking-[0.2em] uppercase text-red-500 hover:text-red-700 dark:hover:text-red-400 transition-colors border-b border-transparent hover:border-red-700 dark:hover:border-red-400 pb-1">
                               Remove
                             </button>
@@ -948,47 +948,47 @@ export default function App() {
                 
                 {cart.length === 0 ? (
                   <div className="text-center">
-                    <p className="mb-8">Ihre Kollektion ist leer.</p>
+                    <p className="mb-8">Your collection is empty.</p>
                     <button onClick={() => setView('shop')} className="border border-black dark:border-white px-8 py-4 font-sans text-[10px] tracking-[0.2em] uppercase font-bold hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors">
-                      Zurück zur Boutique
+                      Return to Boutique
                     </button>
                   </div>
                 ) : (
                   <form onSubmit={(e) => {
                     e.preventDefault();
                     setCart([]);
-                    setNotification('Vielen Dank für Ihre Bestellung!');
+                    setNotification('Thank you for your order. Welcome to the Great Distinction.');
                     setTimeout(() => setNotification(null), 5000);
                     setView('home');
                   }} className="space-y-12">
                     
                     {/* Contact Info */}
                     <div className="space-y-6">
-                      <h2 className="font-sans text-xs tracking-[0.2em] uppercase font-bold border-b border-gray-200 dark:border-gray-800 pb-4">Kontaktinformationen</h2>
+                      <h2 className="font-sans text-xs tracking-[0.2em] uppercase font-bold border-b border-gray-200 dark:border-gray-800 pb-4">Contact Information</h2>
                       <div className="grid grid-cols-1 gap-4">
-                        <input type="email" required placeholder="E-Mail Adresse" className="w-full bg-transparent border border-gray-300 dark:border-gray-700 p-4 font-sans text-sm focus:outline-none focus:border-black dark:focus:border-white transition-colors" />
+                        <input type="email" required placeholder="Email Address" className="w-full bg-transparent border border-gray-300 dark:border-gray-700 p-4 font-sans text-sm focus:outline-none focus:border-black dark:focus:border-white transition-colors" />
                       </div>
                     </div>
 
                     {/* Shipping Address */}
                     <div className="space-y-6">
-                      <h2 className="font-sans text-xs tracking-[0.2em] uppercase font-bold border-b border-gray-200 dark:border-gray-800 pb-4">Lieferadresse</h2>
+                      <h2 className="font-sans text-xs tracking-[0.2em] uppercase font-bold border-b border-gray-200 dark:border-gray-800 pb-4">Shipping Address</h2>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <input type="text" required placeholder="Vorname" className="w-full bg-transparent border border-gray-300 dark:border-gray-700 p-4 font-sans text-sm focus:outline-none focus:border-black dark:focus:border-white transition-colors" />
-                        <input type="text" required placeholder="Nachname" className="w-full bg-transparent border border-gray-300 dark:border-gray-700 p-4 font-sans text-sm focus:outline-none focus:border-black dark:focus:border-white transition-colors" />
-                        <input type="text" required placeholder="Straße und Hausnummer" className="w-full md:col-span-2 bg-transparent border border-gray-300 dark:border-gray-700 p-4 font-sans text-sm focus:outline-none focus:border-black dark:focus:border-white transition-colors" />
-                        <input type="text" required placeholder="PLZ" className="w-full bg-transparent border border-gray-300 dark:border-gray-700 p-4 font-sans text-sm focus:outline-none focus:border-black dark:focus:border-white transition-colors" />
-                        <input type="text" required placeholder="Stadt" className="w-full bg-transparent border border-gray-300 dark:border-gray-700 p-4 font-sans text-sm focus:outline-none focus:border-black dark:focus:border-white transition-colors" />
+                        <input type="text" required placeholder="First Name" className="w-full bg-transparent border border-gray-300 dark:border-gray-700 p-4 font-sans text-sm focus:outline-none focus:border-black dark:focus:border-white transition-colors" />
+                        <input type="text" required placeholder="Last Name" className="w-full bg-transparent border border-gray-300 dark:border-gray-700 p-4 font-sans text-sm focus:outline-none focus:border-black dark:focus:border-white transition-colors" />
+                        <input type="text" required placeholder="Street Address" className="w-full md:col-span-2 bg-transparent border border-gray-300 dark:border-gray-700 p-4 font-sans text-sm focus:outline-none focus:border-black dark:focus:border-white transition-colors" />
+                        <input type="text" required placeholder="Postal Code" className="w-full bg-transparent border border-gray-300 dark:border-gray-700 p-4 font-sans text-sm focus:outline-none focus:border-black dark:focus:border-white transition-colors" />
+                        <input type="text" required placeholder="City" className="w-full bg-transparent border border-gray-300 dark:border-gray-700 p-4 font-sans text-sm focus:outline-none focus:border-black dark:focus:border-white transition-colors" />
                       </div>
                     </div>
 
                     {/* Payment Info (Dummy) */}
                     <div className="space-y-6">
-                      <h2 className="font-sans text-xs tracking-[0.2em] uppercase font-bold border-b border-gray-200 dark:border-gray-800 pb-4">Zahlung</h2>
+                      <h2 className="font-sans text-xs tracking-[0.2em] uppercase font-bold border-b border-gray-200 dark:border-gray-800 pb-4">Payment</h2>
                       <div className="bg-gray-50 dark:bg-zinc-900 p-6 border border-gray-200 dark:border-gray-800">
-                        <p className="font-sans text-sm text-gray-500 mb-4">Dies ist ein Demo-Shop. Es wird keine echte Zahlung durchgeführt.</p>
+                        <p className="font-sans text-sm text-gray-500 mb-4">This is a demo store. No real payment will be processed.</p>
                         <div className="grid grid-cols-1 gap-4">
-                          <input type="text" required placeholder="Kreditkartennummer" className="w-full bg-transparent border border-gray-300 dark:border-gray-700 p-4 font-sans text-sm focus:outline-none focus:border-black dark:focus:border-white transition-colors" />
+                          <input type="text" required placeholder="Credit Card Number" className="w-full bg-transparent border border-gray-300 dark:border-gray-700 p-4 font-sans text-sm focus:outline-none focus:border-black dark:focus:border-white transition-colors" />
                           <div className="grid grid-cols-2 gap-4">
                             <input type="text" required placeholder="MM/YY" className="w-full bg-transparent border border-gray-300 dark:border-gray-700 p-4 font-sans text-sm focus:outline-none focus:border-black dark:focus:border-white transition-colors" />
                             <input type="text" required placeholder="CVC" className="w-full bg-transparent border border-gray-300 dark:border-gray-700 p-4 font-sans text-sm focus:outline-none focus:border-black dark:focus:border-white transition-colors" />
@@ -1000,11 +1000,11 @@ export default function App() {
                     {/* Order Summary */}
                     <div className="space-y-6 pt-8 border-t border-gray-200 dark:border-gray-800">
                       <div className="flex justify-between items-center font-bold text-xl">
-                        <span>Gesamtsumme</span>
+                        <span>Total</span>
                         <span>{cartTotal.toLocaleString('de-DE')} €</span>
                       </div>
                       <button type="submit" className="w-full bg-[#050505] dark:bg-[#F4F4F0] text-white dark:text-[#050505] py-5 font-sans text-[10px] font-bold tracking-[0.2em] uppercase hover:bg-black/80 dark:hover:bg-white/80 transition-colors">
-                        Kostenpflichtig bestellen
+                        Place Order
                       </button>
                     </div>
 
@@ -1020,7 +1020,7 @@ export default function App() {
           <div className="max-w-[1600px] mx-auto">
             <div className="border-b border-white/20 pb-24 mb-24 text-center max-w-2xl mx-auto">
               <ET as="h2" initial="The Inner Circle" className="font-serif text-4xl md:text-5xl font-light mb-6" />
-              <ET as="p" initial="Erhalten Sie exklusiven Zugang zu limitierten Drops, Runway-Shows und Private Sales in Metzingen." className="font-sans text-sm font-light text-gray-400 mb-10" />
+              <ET as="p" initial="Gain exclusive access to limited drops, runway shows, and private sales." className="font-sans text-sm font-light text-gray-400 mb-10" />
               <form className="flex border-b border-white/30 pb-2" onSubmit={(e) => e.preventDefault()}>
                 <input type="email" placeholder="Email Address" className="flex-1 bg-transparent border-none outline-none font-sans text-sm placeholder-gray-600" required />
                 <button type="submit" className="font-sans text-[10px] tracking-[0.2em] uppercase font-bold hover:text-[#D9CDB3] transition-colors">Subscribe</button>
@@ -1029,8 +1029,8 @@ export default function App() {
 
             <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-24">
               <div className="md:col-span-2">
-                <ET as="div" initial="RUDI BEWER" className="font-serif text-3xl font-semibold tracking-tighter mb-6" />
-                <ET as="p" initial="Extreme Contrast & Harmony. Handgefertigt in Metzingen. Weltweit geschätzt von der Avantgarde." className="font-sans text-xs font-light text-gray-400 max-w-xs mb-8 leading-relaxed" />
+                <ET as="div" initial="MAISON RUDI BEWER" className="font-serif text-3xl font-semibold tracking-tighter mb-6" />
+                <ET as="p" initial="The Great Distinction. Handcrafted with excellence. Revered globally by the avant-garde." className="font-sans text-xs font-light text-gray-400 max-w-xs mb-8 leading-relaxed" />
                 <div className="flex gap-6">
                   <a href="#" className="hover:text-[#D9CDB3] transition-colors"><Instagram size={20} /></a>
                   <a href="#" className="hover:text-[#D9CDB3] transition-colors"><Twitter size={20} /></a>
@@ -1041,8 +1041,8 @@ export default function App() {
                 <h4 className="font-sans text-[10px] font-bold tracking-[0.2em] uppercase text-gray-500 mb-8">Boutique</h4>
                 <ul className="space-y-4 font-sans text-sm font-light text-gray-300">
                   <li><button onClick={() => { setView('shop'); setShopMode('main'); }} className="hover:text-white hover:italic transition-all">New Arrivals</button></li>
-                  <li><button onClick={() => { setView('shop'); setShopMode('men'); }} className="hover:text-white hover:italic transition-all">Herren</button></li>
-                  <li><button onClick={() => { setView('shop'); setShopMode('women'); }} className="hover:text-white hover:italic transition-all">Damen</button></li>
+                  <li><button onClick={() => { setView('shop'); setShopMode('men'); }} className="hover:text-white hover:italic transition-all">The Path of Strength</button></li>
+                  <li><button onClick={() => { setView('shop'); setShopMode('women'); }} className="hover:text-white hover:italic transition-all">The Path of Grace</button></li>
                 </ul>
               </div>
               
@@ -1062,7 +1062,7 @@ export default function App() {
                 onClick={() => setIsEditMode(!isEditMode)} 
                 className="cursor-pointer hover:text-white transition-colors flex items-center gap-2"
               >
-                © 2026 Rudi Bewer Metzingen 
+                © 2026 Maison Rudi Bewer 
                 {isEditMode && <span className="text-red-500 font-bold bg-red-500/10 px-2 py-1 rounded">[EDIT MODE ACTIVE]</span>}
               </span>
               <div className="flex gap-8">
